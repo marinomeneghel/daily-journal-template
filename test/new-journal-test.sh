@@ -10,12 +10,7 @@ setup() {
   [ "${lines[0]}" = "No title argument supplied" ]
 }
 
-@test "checks completes correctly when title is passed" {
-  run check_script_arguments 'A nice title'
-  [ "$status" -eq 0 ]
-}
-
-@test "formats given title adding day and month" {
+@test "create filename formatting title and date" {
   run build_filename_from_title 'A nice title'
   echo $output
   [ "$output" = "[16-Mar]-A-nice-title.md" ]
