@@ -10,7 +10,7 @@ check_script_arguments() {
 
 build_filename_from_title() {
   local title=$1
-  local currentdate=`date +"%d-%b"`
+  local currentdate=$(date +%d-%b)
   local formattedtitle=${title// /-}
   echo [$currentdate]-$formattedtitle.md
 }
