@@ -15,6 +15,12 @@ build_filename_from_title() {
   echo [$currentdate]-$formattedtitle.md
 }
 
+open_jorunal_for_editing() {
+  local filename=$1
+  echo $filename
+  vim "$filename"
+}
+
 run_main() {
   local title=$1
   check_script_arguments $title
