@@ -64,11 +64,10 @@ stub_git() {
   run save_journal $title
 
   echo "output= $output"
-  [[ "$output" =~ "journal added to git" ]]
-  [[ "$output" =~ "journal committed" ]]
-  [[ "$output" =~ "journal pushed to repo " ]]
+  [[ "${lines[0]}" = "journal added to git" ]]
+  [[ "${lines[1]}" = "journal committed" ]]
+  [[ "${lines[2]}" = "journal pushed to repo " ]]
   [ "$status" -eq 0 ]
   unstub git
 }
-
 
