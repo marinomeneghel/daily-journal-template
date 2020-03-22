@@ -29,7 +29,9 @@ save_journal() {
 run_main() {
   local title="$1"
   check_script_arguments "$title"
-  build_filename_from_title "$title"
+  local filename=`build_filename_from_title "$title"`
+  # Needed to keep test passing given we put `build_filename_from_title` result into a variable
+  echo "$filename"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
