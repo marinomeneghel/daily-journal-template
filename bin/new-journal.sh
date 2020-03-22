@@ -20,6 +20,10 @@ open_jorunal_for_editing() {
   vim $filename
 }
 
+save_journal() {
+  git add --all
+}
+
 run_main() {
   local title=$1
   check_script_arguments $title

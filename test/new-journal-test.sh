@@ -19,6 +19,14 @@ stub_vim_file() {
     "${_VIM_ARGS} : echo editing new journal"
 }
 
+stub_git() {
+  _GIT_ADD_ARGS='add --all'
+  # _GIT_COMMIT_ARGS=
+  # _GIT_PUSH_ARGS=
+  stub git \
+    "${_GIT_ADD_ARGS} : echo add journal to git"
+}
+
 @test "fails with error when title arg is not passed" {
   run check_script_arguments
 
@@ -47,7 +55,14 @@ stub_vim_file() {
   unstub vim
 }
 
+@test "commits newly created journal when done editing" {
+  stub_git
+  run save_journal
 
+  [ "$output" = "add journal to git" ]
+  [ "$status" -eq 0 ]
+  unstub git
+}
 
 
 
