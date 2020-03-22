@@ -34,6 +34,7 @@ run_main() {
   echo "$filename"
   open_jorunal_for_editing "$filename"
   save_journal "$title"
+  echo "<<< Journal committed and pushed"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]

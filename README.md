@@ -1,13 +1,31 @@
 # Daily journal template
-Provides a very lean set of tools to implement the Agile Daily Journal practice.
+A very lean way to implement the Agile Daily Journal practice.
 
-## Why is it needed?
-I've been using such practices in some of the XP teams I worked with, most of the times finding it very valuable to foster self-reflection and improvement.
-While most of the teams who decides to adhere to this practice will likely go for some tool that's more friendly than bare markdown (Discourse is an example), for someone who wants to create journals only for their personal reflection such tools may imply too much setup work.
-
-This template came out of my own need to write daily journals in a painless, searchable and quick way (If I didn't need the searchable paper would have made it)
-
-What this template does, is to automate the creation of a new file, editing, and committing. Very basic, but very time-effective when it comes to repeating these operations every day.
+## Why?!
+This template have been created mainly for fun (and to try out unit testing sh scripts :D), with the goal of automating some recurring steps I take every day
+After using the Daily Jorunal in some of the XP teams I worked with, finding it very valuable to foster self-reflection and improvement, I found myself in some cases where the team haven't adopted it yet, but I still want to do it for myself.
+Not having some better platforms (like Discourse of whatsoever) already available, and not wanting to set that up, I started creating Markdown files and adding them to a repo.
+Automating part of this is all this template does - nothing too fancy here.
 
 ## How to use
-WIP
+* Clone the repo
+* Rename folder as you want
+* **change the remote to point to wherever you want to store your journal**
+* execute `./bin/daily_journal.sh {ARG_TITLE}`
+* Write your journal and save ;)
+
+## Testing
+The `new_journal` bash script is unit tested using [bats-core](https://github.com/bats-core/bats-core#setup-and-teardown-pre--and-post-test-hooks) and [bats-mock](https://github.com/jasonkarns/bats-mock)
+
+Run tests with ```bats ./test/new-journal-test.sh```
+
+## Improvements
+Many things can be improved from the current state, like
+* Create directories to store journals by month
+* Refactor tests extracting common stubs
+* Create script to add alias to `daily_journal` script execution
+* Add tests execution to git pre-push hook
+* ??? more to come
+
+## Contributing
+More than happy if anyone wants to change stuff here, improvement list's above and I'm also happy to discuss whatever else. Just open a PR ;)
