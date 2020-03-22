@@ -32,6 +32,7 @@ run_main() {
   local filename=`build_filename_from_title "$title"`
   # Needed to keep test passing given we put `build_filename_from_title` result into a variable
   echo "$filename"
+  open_jorunal_for_editing "$filename"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]

@@ -40,7 +40,7 @@ stub_git() {
 @test "create filename formatting input title and date" {
   stub_date
 
-  run ${journal_script} 'A journal title passed from shell'
+  run build_filename_from_title 'A journal title passed from shell'
 
   [ "$output" = "16-Mar-A-journal-title-passed-from-shell.md" ]
   [ "$status" -eq 0 ]
@@ -48,12 +48,12 @@ stub_git() {
 }
 
 @test "open new jorunal for editing" {
-  filename='16-Mar-A-nice-title.md'
-  stub_vim_file $filename
+  local filename='16-Mar-A-new-journal-title.md'
+  stub_vim_file "$filename"
 
   run open_jorunal_for_editing $filename
 
-  [ "$output" = "editing new journal" ]
+  [ "${output}" = "editing new journal" ]
   [ "$status" -eq 0 ]
   unstub vim
 }
