@@ -12,13 +12,12 @@ build_filename_from_title() {
   local title=$1
   local currentdate=$(date +%d-%b)
   local formattedtitle=${title// /-}
-  echo [$currentdate]-$formattedtitle.md
+  echo $currentdate-$formattedtitle.md
 }
 
 open_jorunal_for_editing() {
   local filename=$1
-  echo $filename
-  vim "$filename"
+  vim $filename
 }
 
 run_main() {

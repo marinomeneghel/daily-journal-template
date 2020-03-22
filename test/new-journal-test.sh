@@ -14,8 +14,9 @@ stub_date() {
     "${_DATE_ARGS} : echo 16-Mar"
 }
 stub_vim_file() {
+  _VIM_ARGS=$1
   stub vim \
-    "\"$1\" : echo FUCK"
+    "${_VIM_ARGS} : echo editing new journal"
 }
 
 @test "fails with error when title arg is not passed" {
@@ -30,19 +31,18 @@ stub_vim_file() {
 
   run build_filename_from_title 'A nice title'
 
-  [ "$output" = "[16-Mar]-A-nice-title.md" ]
+  [ "$output" = "16-Mar-A-nice-title.md" ]
   [ "$status" -eq 0 ]
   unstub date
 }
 
 @test "open new jorunal for editing" {
-  filename='[16-Mar]-Time-to-write-a-journal.md'
+  filename='16-Mar-A-nice-title.md'
   stub_vim_file $filename
 
   run open_jorunal_for_editing $filename
 
-  echo $output
-  [ "$output" = "FUCK" ]
+  [ "$output" = "editing new journal" ]
   [ "$status" -eq 0 ]
   unstub vim
 }
