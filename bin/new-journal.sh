@@ -22,7 +22,7 @@ open_jorunal_for_editing() {
 
 save_journal() {
   git add --all
-  git commit -m $1
+  git commit -m "$1"
   git push origin master
 }
 
