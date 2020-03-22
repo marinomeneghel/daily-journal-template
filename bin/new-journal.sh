@@ -22,6 +22,8 @@ open_jorunal_for_editing() {
 
 save_journal() {
   git add --all
+  git commit -m $title
+  git push origin master
 }
 
 run_main() {

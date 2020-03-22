@@ -20,11 +20,14 @@ stub_vim_file() {
 }
 
 stub_git() {
+  local commit_message=$1
   _GIT_ADD_ARGS='add --all'
-  # _GIT_COMMIT_ARGS=
-  # _GIT_PUSH_ARGS=
+  _GIT_COMMIT_ARGS="commit -m ${commit_message}"
+  _GIT_PUSH_ARGS='push origin master'
   stub git \
-    "${_GIT_ADD_ARGS} : echo add journal to git"
+    "${_GIT_ADD_ARGS} : echo journal added to git" \
+    "${_GIT_COMMIT_ARGS} : echo journal committed" \
+    "${_GIT_PUSH_ARGS} : echo journal pushed to repo"
 }
 
 @test "fails with error when title arg is not passed" {
@@ -55,16 +58,16 @@ stub_git() {
   unstub vim
 }
 
-@test "commits newly created journal when done editing" {
-  stub_git
-  run save_journal
+@test "save jurnal to git when done editing" {
+  title='A nice journal'
+  stub_git $title
+  run save_journal $title
 
-  [ "$output" = "add journal to git" ]
+  echo "output= $output"
+  [[ "$output" =~ "journal added to git" ]]
+  [[ "$output" =~ "journal committed" ]]
+  [[ "$output" =~ "journal pushed to repo " ]]
   [ "$status" -eq 0 ]
   unstub git
 }
-
-
-
-
 
