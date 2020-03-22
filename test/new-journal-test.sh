@@ -31,10 +31,21 @@ stub_git() {
 }
 
 @test "fails with error when title arg is not passed" {
-  run check_script_arguments
+  run ${journal_script}
 
   [ "$status" -eq 1 ]
   [ "${lines[0]}" = "No title argument supplied" ]
+}
+
+@test "main reads arguments correctly" {
+  stub_date
+
+  run ${journal_script} 'A title correctly passed'
+
+  echo $output
+  [ "$status" -eq 0 ]
+  [ "${output}" = "16-Mar-A-title-correctly-passed.md" ]
+  unstub date
 }
 
 @test "create filename formatting title and date" {
@@ -70,4 +81,5 @@ stub_git() {
   [ "$status" -eq 0 ]
   unstub git
 }
+
 

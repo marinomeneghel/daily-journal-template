@@ -27,12 +27,13 @@ save_journal() {
 }
 
 run_main() {
-  local title=$1
-  check_script_arguments $title
-  filename=build_filename_from_title $title
+  local title="$1"
+  check_script_arguments "$title"
+  build_filename_from_title "$title"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
 then
-    run_main
+  _ARGS="$1"
+  run_main "${_ARGS}"
 fi
