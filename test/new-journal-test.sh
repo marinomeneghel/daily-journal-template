@@ -37,23 +37,12 @@ stub_git() {
   [ "${lines[0]}" = "No title argument supplied" ]
 }
 
-@test "main reads arguments correctly" {
+@test "create filename formatting input title and date" {
   stub_date
 
-  run ${journal_script} 'A title correctly passed'
+  run ${journal_script} 'A journal title passed from shell'
 
-  echo $output
-  [ "$status" -eq 0 ]
-  [ "${output}" = "16-Mar-A-title-correctly-passed.md" ]
-  unstub date
-}
-
-@test "create filename formatting title and date" {
-  stub_date
-
-  run build_filename_from_title 'A nice title'
-
-  [ "$output" = "16-Mar-A-nice-title.md" ]
+  [ "$output" = "16-Mar-A-journal-title-passed-from-shell.md" ]
   [ "$status" -eq 0 ]
   unstub date
 }
