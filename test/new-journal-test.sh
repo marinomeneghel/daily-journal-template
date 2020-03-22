@@ -63,7 +63,6 @@ stub_git() {
   stub_git $title
   run save_journal $title
 
-  echo "output= $output"
   [[ "${lines[0]}" = "journal added to git" ]]
   [[ "${lines[1]}" = "journal committed" ]]
   [[ "${lines[2]}" = "journal pushed to repo " ]]
@@ -71,3 +70,22 @@ stub_git() {
   unstub git
 }
 
+@test "test all steps are correctly called when executing script" {
+  title='A new journal title'
+  filename='16-Mar-A-new-journal-title.md'
+  stub_date
+  stub_vim_file "$filename"
+  stub_git "$title"
+
+  run ${journal_script} "$title"
+
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "16-Mar-A-new-journal-title.md" ]
+  [ "${lines[1]}" = "editing new journal" ]
+  [ "${lines[2]}" = "journal added to git" ]
+  [ "${lines[3]}" = "journal committed" ]
+  [ "${lines[4]}" = "journal pushed to repo" ]
+  unstub date
+  unstub vim
+  unstub git
+}

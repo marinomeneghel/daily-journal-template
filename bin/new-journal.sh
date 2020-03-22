@@ -22,7 +22,7 @@ open_jorunal_for_editing() {
 
 save_journal() {
   git add --all
-  git commit -m $title
+  git commit -m $1
   git push origin master
 }
 
@@ -33,6 +33,7 @@ run_main() {
   # Needed to keep test passing given we put `build_filename_from_title` result into a variable
   echo "$filename"
   open_jorunal_for_editing "$filename"
+  save_journal "$title"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
