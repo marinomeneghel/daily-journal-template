@@ -1,7 +1,7 @@
 # Daily journal template
 A very lean way to implement the Agile Daily Journal practice.
 
-## Why?!
+## Purpose
 This template have been created mainly for fun (and to try out unit testing sh scripts :D), with the goal of automating some recurring steps I take every day
 After using the Daily Jorunal in some of the XP teams I worked with, finding it very valuable to foster self-reflection and improvement, I found myself in some cases where the team haven't adopted it yet, but I still want to do it for myself.
 Not having some better platforms (like Discourse of whatsoever) already available, and not wanting to set that up, I started creating Markdown files and adding them to a repo.
