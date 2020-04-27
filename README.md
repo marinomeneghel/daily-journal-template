@@ -26,6 +26,7 @@ Many things can be improved from the current state, like
 * Create script to add alias to `daily_journal` script execution
 * Add tests execution to git pre-push hook
 * Init journal with filename as title
+* Improve tests to avoid flackiness with mocking / unmocking
 
 ## Contributing
-More than happy if anyone wants to change stuff here, improvement list's above and I'm also happy to discuss whatever else. Just open a PR ;)
+More than happy if anyone wants to change stuff here, improvement list's above and I'm also happy to include whatever else. Just open a PR ;)
