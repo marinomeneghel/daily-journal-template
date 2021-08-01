@@ -1,18 +1,19 @@
 # Daily journal template
-A lean way to implement the Agile Daily Journal practice.
+A lean way to implement the Daily Journal practice.
 
 ## Purpose
-This template have been created mainly for fun (and to try out unit testing sh scripts :D), with the goal of automating some recurring steps I take every day
-After using the Daily Jorunal in some of the XP teams I worked with, finding it very valuable to foster self-reflection and improvement, I found myself in some cases where the team haven't adopted it yet, but I still want to do it for myself.
-Not having some better platforms (like Discourse of whatsoever) already available, and not wanting to set that up, I started creating Markdown files and adding them to a repo.
-Automating part of this is all this template does - nothing too fancy here.
+This template have been created mainly for fun (and for trying out unit testing bash scripts with [bats](https://github.com/bats-core/bats-core#setup-and-teardown-pre--and-post-test-hooks)), with the goal of automating some recurring steps I take every day.
+
+Working in my first XP team in XPeppers I discovered the "Daily Journal" practice, finding into it a great tool for self-reflection and improvement both on personal and team level.
+When moving to different teams, I found myself in situations where the team wasn't adopting this practice but I still want to do it for myself.
+This repo is automating some of the steps to create and publish a very lean Daily Jorunal with Markdown and git.
 
 ## How to use
 * Clone the repo
-* Rename folder as you want
-* **change the remote to point to wherever you want to store your journal**
-* execute `./bin/daily_journal.sh {ARG_TITLE}`
-* Write your journal and save ;)
+* Rename it as you want
+* **Change the remote to point to wherever you want to store your journal**
+* Execute `./bin/daily_journal.sh {ARG_TITLE}`
+* Write your journal and save
 
 ## Testing
 The `new_journal` bash script is unit tested using [bats-core](https://github.com/bats-core/bats-core#setup-and-teardown-pre--and-post-test-hooks) and [bats-mock](https://github.com/jasonkarns/bats-mock)
