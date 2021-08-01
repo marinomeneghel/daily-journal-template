@@ -22,7 +22,6 @@ Run tests with ```bats ./test/new-journal-test.sh```
 
 ## Improvements
 Here are some potential improvements over the current state:
-* Create directories to store journals by month
 * Refactor tests extracting common stubs
 * Create script to add alias to `daily_journal` script execution
 * Add tests execution to git pre-push hook
@@ -32,4 +31,4 @@ Here are some potential improvements over the current state:
 
 
 ## Contributing
-More than happy if anyone wants to change stuff here, improvement list's above and I'm also happy to include whatever else. Just open a PR ;)
+Welcoming any feedback, improvements or just having a chat. Just open a PR!
