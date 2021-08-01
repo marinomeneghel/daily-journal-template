@@ -16,8 +16,11 @@ build_filename_from_title() {
 }
 
 open_jorunal_for_editing() {
+  local currentyear=$(date +%Y)
+  local currentmonth=$(date +%b)
   local filename=$1
-  vim $filename
+  mkdir -p journals/$currentyear/$currentmonth
+  vim journals/$currentyear/$currentmonth/$filename
 }
 
 save_journal() {
